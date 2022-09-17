@@ -32,6 +32,11 @@ p {
     padding: 10px;
 }
 
+.node-cell:hover {
+    color: #ffffff;
+    box-shadow: 0 5px 15px rgba(23, 119, 255, 0.4);
+}
+
 #node-info {
     margin-top: 10px;
     margin-left: 10px;
