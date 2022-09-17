@@ -5,6 +5,11 @@ h1, h2 {
 
 p {
     margin-bottom: 0px !important;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.stats {
 }
 
 .navbar {
@@ -87,6 +92,7 @@ li {
     border-radius: 25px; !important;
     background: #ececec; !important;
     padding-bottom: 1%; !important;
+    padding-top: 10px; !important;
     padding-left: 15px; !important;
     padding-right: 15px; !important;
 }

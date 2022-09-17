@@ -1,11 +1,11 @@
 <html>
 <head>
-    <title>Json Graph Correlations (JGC)</title>
+    <title>JGC</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="bootstrap.min.css">
 </head>
-<body onload="registerElementListeners()">
+<body onload="registerElementListeners(), loadGraph()">
 
 
 <div id=RowDivWithBackground class="container fill bg-light">
@@ -50,16 +50,16 @@
                             <input class="form-check-input" type="checkbox" id="switchIdentifiers">
                             <label class="form-check-label" for="switchIdentifiers">Show Node Identifiers</label>
                         </div>
-                        <button type="button" class="btn btn-outline-primary">Jump to Root-Node</button>
+                        <button type="button" class="btn btn-outline-danger">Reset Root-Node</button>
                     </div>
 
                     <!-- Statistics -->
                     <div class="split-div-right highlight-section">
                         <h3>Graph Statistics</h3>
                         <ul>
-                            <li>Total nodes: 42</li>
-                            <li>Leaf nodes: 42</li>
-                            <li>Average child count: 42</li>
+                            <li><p>Total nodes: </p><p id="stats-total">---</p></li>
+                            <li><p>Leaf nodes: </p><p id="stats-leaves">---</p></li>
+                            <li><p>Tree depth: </p><p id="stats-depth">---</p></li>
                         </ul>
                     </div>
                 </div>
