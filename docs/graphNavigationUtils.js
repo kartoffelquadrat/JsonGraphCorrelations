@@ -14,6 +14,26 @@ function toggleTabs(target) {
     }
 }
 
+// Iterates over map and increases counter for every entry that cas no children.
+function countGraphLeaves(graphMap) {
+    let leaf_counter = 0
+
+    for (let [key, value] of graphMap) {
+        if (value.sub.length == 0) {
+            leaf_counter += 1
+        }
+    }
+    return leaf_counter
+}
+
+// Returns the first node found without any parent.
+function findRootNote(graphMap) {
+    for (let [key, value] of graphMap) {
+        if (value.sup.length == 0) {
+            return key
+        }
+    }
+}
 
 function logGraph(graph) {
     console.log(graph)
@@ -23,7 +43,9 @@ function logGraph(graph) {
 
     // Update stats
     document.getElementById("stats-total").innerText = graphMap.size
-    document.getElementById("stats-leaves").innerText = "100"
+    document.getElementById("stats-leaves").innerText = countGraphLeaves(graphMap)
+    document.getElementById("stats-root").innerText = findRootNote(graphMap)
+
 }
 
 function loadGraph() {
