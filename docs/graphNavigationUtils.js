@@ -1,6 +1,7 @@
 // Global variable that all functions cn access anytime, e.g. to recenter on root node without reloading entire graph from disk.
 let graph_map
 let root_node
+let current_node
 let current_children = []
 let current_parents = []
 
@@ -25,6 +26,50 @@ function findRootNote(graphMap) {
     }
 }
 
+function buildChildGrid(current_node) {
+
+    // clear all cells
+    let cell_container = document.getElementById("cell-container")
+    cell_container.innerHTML = ""
+
+    const map1 = new Map();
+
+    map1.set('a', 1);
+    map1.set('a', 2);
+    map1.set('c', 3);
+    console.log(map1)
+
+    // get list of all children (only IDs, unsorted)
+    let unsorted_child_ids = graph_map.get(current_node).sub
+    console.log("Children: " + unsorted_child_ids)
+
+    // get list of actual child node objects
+    let child_nodes = []
+    unsorted_child_ids.forEach(function (item, index) {
+        child_nodes.push(graph_map.get(String(item)))
+    });
+    // sort the child nodes by descending ext
+    let descending_ext_child_nodes = child_nodes.sort((a, b) => a.ext - b.ext).reverse();
+    console.log(descending_ext_child_nodes)
+
+    // sort children by extensions (calue is ext, key is child id - if other way round the nodes could erase one another if same ext)
+    // let ext_children = new Map()
+    // unsorted_children.forEach(function (item, index) {
+    //     ext_children.set(item, graph_map.get(String(item)).ext)
+    // });
+    //
+    //
+    // console.log(ext_children)
+    // let mapAsc = new Map([ext_children.entries()].sort());
+    //
+
+
+    // append a cell for each child
+    // children.forEach(function (item, index) {
+    //     console.log(item, index);
+    // });
+}
+
 // updates the static information field for the current node
 function focusNodeById(node_key) {
 
@@ -39,7 +84,8 @@ function focusNodeById(node_key) {
         document.getElementById("current-payload").innerText = graph_map.get("2").tpl
 
     // update specialization / generalization panel
-    // ...
+    // FOR NOW: only children
+    buildChildGrid(current_node)
 }
 
 function initializeBoard(graph) {
@@ -50,6 +96,7 @@ function initializeBoard(graph) {
 
     // Update stats
     root_node = findRootNote(graph_map)
+    current_node = root_node
     document.getElementById("stats-total").innerText = graph_map.size
     document.getElementById("stats-leaves").innerText = countGraphLeaves(graph_map)
     document.getElementById("stats-root").innerText = root_node
