@@ -1,4 +1,4 @@
-h1, h2, h3, p {
+h1, h2 {
     text-align: center;
 }
 
@@ -32,15 +32,24 @@ li {
 }
 
 .body {
-    background-color: #AAAAAA;
+    background-color: #b6b6b6;
     display: flex;
     font-family: sans-serif;
     justify-content: center;
 }
 
 #jgc-container {
-    background: #e5e5e5;
+    background: #f0f0f0;
     width: 96%;
     padding: 10px;
     border-radius: 25px;
+}
+
+.section {
+    padding-bottom: 30px;
+    padding-left: 15px;
+}
+
+.settings-element {
+    padding-bottom: 2px;
 }
