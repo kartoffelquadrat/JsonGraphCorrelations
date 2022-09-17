@@ -12,10 +12,7 @@ p {
 
 .cell-grid {
     background-color: white;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 6px;
     border-radius: 10px;
 }
 
@@ -25,14 +22,31 @@ p {
     padding: 0px !important;
 }
 
+.nav-link:focus {
+    outline: none;
+}
+
+.nav-link:hover {
+    color: #0D6EFD;
+}
+
+.navbar {
+    float: right;
+}
+
+.navbar-nav {
+    padding-top: 10px;
+}
+
 .node-cell {
     border-radius: 10px;
     background-color: #d7d7d7;
     padding: 10px;
     margin: 5px !important;
+    transition: 0.3s;
 }
 
-.node-cell:hover {
+.node-cell-selectable:hover {
     color: #ffffff;
     background-color: #0D6EFD;
     box-shadow: 2px 2px 15px 3px rgba(23, 119, 255, 0.4);
@@ -44,7 +58,7 @@ p {
 }
 
 /* Clear floats after the columns */
-.row:after {
+.cell-row:after {
     content: "";
     display: table;
     clear: both;
@@ -62,8 +76,9 @@ li {
 }
 
 #jgc-container {
+    margin-top: 4%;
     background: #ececec;
-    width: 96%;
+    width: 97%;
     padding: 10px;
     border-radius: 25px;
 }

@@ -3,16 +3,15 @@
     <title>Json Graph Correlations (JGC)</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="bootstrap.min.css">
 </head>
-<body onload="boo()">
+<body onload="registerElementListeners()">
 
 
 <div id=RowDivWithBackground class="container fill bg-light">
 
     <!--    NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="navbar ms-auto">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a href="https://github.com/kartoffelquadrat/JsonGraphCorrelations" class="btn btn-outline-primary"
@@ -23,7 +22,6 @@
                         Page</a>
                 </li>
             </ul>
-        </div>
     </nav>
 
 
@@ -36,7 +34,7 @@
         <div id='jgc-container' class="container">
             <h2>Json Graph Correlations</h2>
 
-            <!-- Settings-->
+            <!-- Settings -->
             <div class="page-section">
                 <h3>Settings</h3>
                 <div class="settings-element form-check form-switch">
@@ -50,7 +48,7 @@
                 <button type="button" class="btn btn-outline-primary">Jump to Root-Node</button>
             </div>
 
-            <!-- Settings-->
+            <!-- Statistics -->
             <div class="page-section">
                 <h3>Graph Statistics</h3>
                 <ul>
@@ -72,7 +70,7 @@
                     <!-- Information about current node-->
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="cell-grid" id="parentcells">
-                            <div class="row">
+                            <div class="cell-row">
                                 <div class="cell-container">
                                     <div class="node-cell">
                                         <p id="current-id">ID:</p>
@@ -106,46 +104,46 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                             <div class="cell-grid" id="parentcells">
-                                <div class="row">
+                                <div class="cell-row">
                                     <div class="cell-container">
-                                        <div class="node-cell">
+                                        <div class="node-cell node-cell-selectable">
                                             <p id="related-node-1-id">ID:</p>
                                             <p id="related-node-1-extensions">Extensions:</p>
                                             <p id="related-node-1-payload">PAYLOAD HERE</p>
                                         </div>
                                     </div>
                                     <div class="cell-container">
-                                        <div class="node-cell">
+                                        <div class="node-cell node-cell-selectable">
                                             <p id="related-node-2-id">ID:</p>
                                             <p id="related-node-2-extensions">Extensions:</p>
                                             <p id="related-node-2-payload">PAYLOAD HERE</p>
                                         </div>
                                     </div>
                                     <div class="cell-container">
-                                        <div class="node-cell">
+                                        <div class="node-cell node-cell-selectable">
                                             <p id="related-node-3-id">ID:</p>
                                             <p id="related-node-3-extensions">Extensions:</p>
                                             <p id="related-node-3-payload">PAYLOAD HERE</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="cell-row">
                                     <div class="cell-container">
-                                        <div class="node-cell">
+                                        <div class="node-cell node-cell-selectable">
                                             <p id="related-node-4-id">ID:</p>
                                             <p id="related-node-4-extensions">Extensions:</p>
                                             <p id="related-node-4-payload">PAYLOAD HERE</p>
                                         </div>
                                     </div>
                                     <div class="cell-container">
-                                        <div class="node-cell">
+                                        <div class="node-cell node-cell-selectable">
                                             <p id="related-node-5-id">ID:</p>
                                             <p id="related-node-5-extensions">Extensions:</p>
                                             <p id="related-node-5-payload">PAYLOAD HERE</p>
                                         </div>
                                     </div>
                                     <div class="cell-container">
-                                        <div class="node-cell">
+                                        <div class="node-cell node-cell-selectable">
                                             <p id="related-node-6-id">ID:</p>
                                             <p id="related-node-6-extensions">Extensions:</p>
                                             <p id="related-node-6-payload">PAYLOAD HERE</p>
@@ -162,12 +160,6 @@
     </div>
 </div>
 
-<!--BootStrap & BootStrap Javascript support-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
 <script src="graphNavigationUtils.js"></script>
 </body>
 </html>
