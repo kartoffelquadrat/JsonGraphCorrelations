@@ -2,6 +2,10 @@ h1, h2 {
     text-align: center;
 }
 
+p {
+    margin-bottom: 0px !important;
+}
+
 .navbar {
     padding-right: 1%;
 }
@@ -17,10 +21,20 @@ h1, h2 {
     width: 33.33% !important;
 }
 
+.middle {
+
+}
+
+
 .node-cell {
     border-radius: 10px;
     background-color: #d7d7d7;
     padding: 10px;
+}
+
+#node-info {
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 /* Clear floats after the columns */
@@ -28,13 +42,6 @@ h1, h2 {
     content: "";
     display: table;
     clear: both;
-}
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
 }
 
 li {
@@ -55,7 +62,7 @@ li {
     border-radius: 25px;
 }
 
-.section {
+.page-section {
     padding-bottom: 30px;
     padding-left: 15px;
 }
