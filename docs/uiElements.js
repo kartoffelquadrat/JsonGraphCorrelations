@@ -2,8 +2,8 @@ function registerElementListeners() {
     document.getElementById('children-tab').addEventListener("click", () => toggleTabs("parents"));
     document.getElementById('parents-tab').addEventListener("click", () => toggleTabs("children"));
     document.getElementById('focus-root').addEventListener("click", () => focusNodeById(root_node));
-    document.getElementById('switchExtensions').addEventListener("click", () => toggleExtensionLines());
-    document.getElementById('switchIdentifiers').addEventListener("click", () => toggleIdentifierLines());
+    document.getElementById('switchExtensions').addEventListener("click", () => toggleLines('switchExtensions', 'extension-line'));
+    document.getElementById('switchIdentifiers').addEventListener("click", () => toggleLines('switchIdentifiers', 'id-line'));
 }
 
 function toggleTabs(target) {
@@ -17,16 +17,13 @@ function toggleTabs(target) {
     }
 }
 
-function toggleIdentifierLines() {
-    if (document.getElementById('switchIdentifiers').checked == true)
-        document.getElementById('id-line').classList.remove("hidden-line")
-    else
-        document.getElementById('id-line').classList.add("hidden-line")
-}
+function toggleLines(checkbox_name, class_search_name) {
+    let all_identifier_lines = document.getElementsByClassName(class_search_name)
+    for (let i = 0; i < all_identifier_lines.length; i++) {
+        if (document.getElementById(checkbox_name).checked == true)
+            all_identifier_lines[i].classList.remove('hidden-line')
+        else
+            all_identifier_lines[i].classList.add('hidden-line')
 
-function toggleExtensionLines() {
-    if (document.getElementById('switchExtensions').checked == true)
-        document.getElementById('extension-line').classList.remove("hidden-line")
-    else
-        document.getElementById('extension-line').classList.add("hidden-line")
+    }
 }
