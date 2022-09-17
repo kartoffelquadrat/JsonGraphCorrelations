@@ -10,31 +10,32 @@ p {
     padding-right: 1%;
 }
 
-.grid {
+.cell-grid {
     background-color: white;
-    padding: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 10px;
 }
 
-.column {
+.cell-container {
     float: left;
     width: 33.33% !important;
+    padding: 0px !important;
 }
-
-.middle {
-
-}
-
 
 .node-cell {
     border-radius: 10px;
     background-color: #d7d7d7;
     padding: 10px;
+    margin: 5px !important;
 }
 
 .node-cell:hover {
     color: #ffffff;
-    box-shadow: 0 5px 15px rgba(23, 119, 255, 0.4);
+    background-color: #0D6EFD;
+    box-shadow: 2px 2px 15px 3px rgba(23, 119, 255, 0.4);
 }
 
 #node-info {
@@ -61,7 +62,7 @@ li {
 }
 
 #jgc-container {
-    background: #eaeaea;
+    background: #ececec;
     width: 96%;
     padding: 10px;
     border-radius: 25px;
