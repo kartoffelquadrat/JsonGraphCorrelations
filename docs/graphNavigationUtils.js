@@ -1,3 +1,3 @@
 function boo() {
-    alert("JS file loaded.")
+    console.log("JS File loaded.")
 }

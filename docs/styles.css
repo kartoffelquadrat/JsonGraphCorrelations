@@ -1,6 +1,7 @@
 h1, h2, h3, p {
     text-align: center;
 }
+
 .column {
     float: left;
     width: 33.33%;
@@ -18,4 +19,32 @@ h1, h2, h3, p {
     margin-left: auto;
     margin-right: auto;
     width: 75%;
+}
+
+li {
+    padding-left: 10px;
+}
+
+#cellcontainer {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+.body {
+    background-color: #AAAAAA;
+    display: flex;
+    font-family: sans-serif;
+    justify-content: center;
+}
+
+#xox-container {
+    outline-color: #000000;
+    background: #007BFF;
+    width: 94%;
+    /*margin: 0 auto;*/
+
+    /*// seems like the padding would have to adapt to the surrounding container width...*/
+    padding: 10px;
+    border-radius: 25px;
 }
