@@ -50,7 +50,7 @@
                             <input class="form-check-input" type="checkbox" id="switchExtensions">
                             <label class="form-check-label" for="switchExtensions">Show Extensions</label>
                         </div>
-                        <button type="button" class="btn btn-outline-danger">Focus Root-Node</button>
+                        <button type="button" id="focus-root" class="btn btn-outline-danger">Focus Root-Node</button>
                     </div>
 
                     <!-- Statistics -->
@@ -84,8 +84,8 @@
                                     <div class="node-cell">
                                         <p>ID: </p>
                                         <p id="current-id">---</p><br>
-                                        <p>Extensions: </p>
-                                        <p id="current-extensions">---</p><br>
+                                        <p class="extension-line">Extensions: </p>
+                                        <p class="extension-line" id="current-extensions">---</p><br>
                                         <span class="monospaced"><p id="current-payload">---</p><span>
                                     </div>
                                 </div>
