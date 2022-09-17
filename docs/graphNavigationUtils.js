@@ -22,11 +22,20 @@ function toggleTabs(target) {
 }
 
 function toggleIdentifierLines() {
-    alert("IDs")
+    if (document.getElementById('switchIdentifiers').checked == true)
+        document.getElementById('id-line').classList.remove("hidden-line")
+    else
+        document.getElementById('id-line').classList.add("hidden-line")
 }
 
 function toggleExtensionLines() {
-    alert("Exts")
+    if (document.getElementById('switchExtensions').checked == true)
+
+        document.getElementById('extension-line').classList.remove("hidden-line")
+    else
+        document.getElementById('extension-line-line').classList.add("hidden-line")
+
+    // alert("Exts")
 }
 
 // Iterates over map and increases counter for every entry that cas no children.
