@@ -9,7 +9,12 @@ p {
     padding-right: 5px;
 }
 
-.stats {
+
+.monospaced {
+    font-size: 12;
+    font-family: monospace;
+    overflow-wrap: break-word;
+    overflow: hidden
 }
 
 .navbar {

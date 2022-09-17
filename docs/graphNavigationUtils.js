@@ -35,16 +35,28 @@ function findRootNote(graphMap) {
     }
 }
 
-function logGraph(graph) {
+// updates the static information field for the current node
+function focusNodeById(node_key, node_values) {
+
+    document.getElementById("current-id").innerText = node_key
+    document.getElementById("current-extensions").innerText = node_values.ext
+    document.getElementById("current-payload").innerText = node_values.tpl
+}
+
+function initializeBoard(graph) {
     console.log(graph)
 
     // Convert object to map
-    let graphMap = new Map(Object.entries(graph))
+    let graph_map = new Map(Object.entries(graph))
 
     // Update stats
-    document.getElementById("stats-total").innerText = graphMap.size
-    document.getElementById("stats-leaves").innerText = countGraphLeaves(graphMap)
-    document.getElementById("stats-root").innerText = findRootNote(graphMap)
+    const root_node = findRootNote(graph_map)
+    document.getElementById("stats-total").innerText = graph_map.size
+    document.getElementById("stats-leaves").innerText = countGraphLeaves(graph_map)
+    document.getElementById("stats-root").innerText = root_node
+
+    // Focus root node
+    focusNodeById(root_node, graph_map.get("1"))
 
 }
 
@@ -52,6 +64,6 @@ function loadGraph() {
 
     fetch("minified_lattice.json")
         .then(result => result.json())
-        .then(graph => logGraph(graph))
+        .then(graph => initializeBoard(graph))
 }
 

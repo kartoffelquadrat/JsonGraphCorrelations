@@ -43,23 +43,26 @@
                     <div class="split-div highlight-section">
                         <h3>Settings</h3>
                         <div class="settings-element form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="switchExtensions">
-                            <label class="form-check-label" for="switchExtensions">Show Node Extensions</label>
+                            <input class="form-check-input" type="checkbox" id="switchIdentifiers">
+                            <label class="form-check-label" for="switchIdentifiers">Show Identifiers</label>
                         </div>
                         <div class="settings-element form-check form-switch">
-                            <input class="form-check-input" type="checkbox" id="switchIdentifiers">
-                            <label class="form-check-label" for="switchIdentifiers">Show Node Identifiers</label>
+                            <input class="form-check-input" type="checkbox" id="switchExtensions">
+                            <label class="form-check-label" for="switchExtensions">Show Extensions</label>
                         </div>
-                        <button type="button" class="btn btn-outline-danger">Reset Root-Node</button>
+                        <button type="button" class="btn btn-outline-danger">Focus Root-Node</button>
                     </div>
 
                     <!-- Statistics -->
                     <div class="split-div-right highlight-section">
                         <h3>Graph Statistics</h3>
                         <ul>
-                            <li><p>Total nodes: </p><p id="stats-total">---</p></li>
-                            <li><p>Leaf nodes: </p><p id="stats-leaves">---</p></li>
-                            <li><p>Tree root: </p><p id="stats-root">---</p></li>
+                            <li><p>Total nodes: </p>
+                                <p id="stats-total">---</p></li>
+                            <li><p>Leaf nodes: </p>
+                                <p id="stats-leaves">---</p></li>
+                            <li><p>Tree root: </p>
+                                <p id="stats-root">---</p></li>
                         </ul>
                     </div>
                 </div>
@@ -79,9 +82,11 @@
                             <div class="cell-row">
                                 <div class="cell-container">
                                     <div class="node-cell">
-                                        <p id="current-id">ID:</p>
-                                        <p id="current-extensions">Extensions:</p>
-                                        <p id="current-payload">PAYLOAD HERE</p>
+                                        <p>ID: </p>
+                                        <p id="current-id">---</p><br>
+                                        <p>Extensions: </p>
+                                        <p id="current-extensions">---</p><br>
+                                        <span class="monospaced"><p id="current-payload">---</p><span>
                                     </div>
                                 </div>
                             </div>
