@@ -46,7 +46,9 @@ function buildChildGrid(current_node) {
     console.log(descending_ext_child_nodes)
 
     // Append a new child node to the dom tree for every instance
-    cell_container.appendChild(createCellDom(descending_ext_child_nodes[0].id, descending_ext_child_nodes[0].node))
+    for (let child_index = 0; child_index < descending_ext_child_nodes.length; child_index++) {
+        cell_container.appendChild(createCellDom(descending_ext_child_nodes[child_index].id, descending_ext_child_nodes[child_index].node))
+    }
 }
 
 // creates a HTML entry that is ready for integration into the DOM
