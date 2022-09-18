@@ -2,9 +2,9 @@ function registerElementListeners() {
     document.getElementById('children-tab').addEventListener("click", () => toggleTabs("parents"));
     document.getElementById('parents-tab').addEventListener("click", () => toggleTabs("children"));
     document.getElementById('focus-root').addEventListener("click", () => focusNodeById(root_node));
-    document.getElementById('switchExtensions').addEventListener("click", () => toggleLines('switchExtensions', 'extension-line', 'hidden-line'));
-    document.getElementById('switchIdentifiers').addEventListener("click", () => toggleLines('switchIdentifiers', 'id-line', 'hidden-line'));
-    document.getElementById('switchHeightLimit').addEventListener("click", () => toggleLines('switchHeightLimit', 'node-cell', 'limit-height'));
+    document.getElementById('switchExtensions').addEventListener("click", () => refreshSettingsState('switchExtensions', 'extension-line', 'hidden-line'));
+    document.getElementById('switchIdentifiers').addEventListener("click", () => refreshSettingsState('switchIdentifiers', 'id-line', 'hidden-line'));
+    document.getElementById('switchHeightLimit').addEventListener("click", () => refreshSettingsState('switchHeightLimit', 'node-cell', 'limit-height'));
 }
 
 function toggleTabs(target) {
@@ -18,13 +18,17 @@ function toggleTabs(target) {
     }
 }
 
-function toggleLines(checkbox_name, class_search_name, toggle_class) {
+function refreshSettingsState(checkbox_name, class_search_name, toggle_class) {
     let all_identifier_lines = document.getElementsByClassName(class_search_name)
     for (let i = 0; i < all_identifier_lines.length; i++) {
-        if (document.getElementById(checkbox_name).checked == true)
+        if (isCheckedStatus(checkbox_name))
             all_identifier_lines[i].classList.remove(toggle_class)
         else
             all_identifier_lines[i].classList.add(toggle_class)
 
     }
+}
+
+function isCheckedStatus(checkbox_name) {
+    return document.getElementById(checkbox_name).checked == true
 }

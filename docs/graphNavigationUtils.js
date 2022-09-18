@@ -63,6 +63,8 @@ function createCellDom(node_id, node) {
     // first inner div (ID)
     const id_div = document.createElement('div')
     id_div.setAttribute("class", "id-line")
+    // if(isCheckedStatus('switchIdentifier'))
+    //     id_div.setAttribute("class", "id-line hidden-line")
     const id_p = document.createElement('p')
     id_p.innerText = "ID: " + node_id
     id_div.appendChild(id_p)
@@ -71,6 +73,8 @@ function createCellDom(node_id, node) {
     // second inner div (Ext)
     const ext_div = document.createElement('div')
     ext_div.setAttribute("class", "extension-line")
+    // if(isCheckedStatus('switchExtensions'))
+    //     ext_div.setAttribute("class", "extensions-line hidden-line")
     const ext_p = document.createElement('p')
     ext_p.innerText = "Extensions: " + node.ext
     ext_div.appendChild(ext_p)
