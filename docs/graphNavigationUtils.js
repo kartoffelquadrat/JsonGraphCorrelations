@@ -98,14 +98,15 @@ function focusNodeById(node_key) {
 
     current_node = node_key
     console.log(graph_map)
+
     // Update current node panel
     document.getElementById("current-id").innerText = node_key
-    document.getElementById("current-extensions").innerText = graph_map.get("2").ext
+    document.getElementById("current-extensions").innerText = graph_map.get(node_key).ext
     let node = graph_map.get(node_key)
     if (node.tpl === "")
         document.getElementById("current-payload").innerText = "- NO PAYLOAD -"
     else
-        document.getElementById("current-payload").innerText = graph_map.get("2").tpl
+        document.getElementById("current-payload").innerText = graph_map.get(node_key).tpl
 
     // update specialization / generalization panel
     // FOR NOW: only children
