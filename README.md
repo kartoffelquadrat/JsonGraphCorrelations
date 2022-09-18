@@ -2,7 +2,6 @@
 
 Minimal Graph navigation based on parent / child correlations.
 
-![webstorm](https://img.shields.io/badge/WebStorm-2022.2.2-blue)
 ![clojure linter](https://img.shields.io/badge/Clojure%20Linter-202.1-blue)
 ![boostrap css](https://img.shields.io/badge/Bootstrap%20CSS-4.1.3-blue)
 
