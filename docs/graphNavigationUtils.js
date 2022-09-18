@@ -45,7 +45,6 @@ function buildGrid() {
     });
     // sort the child nodes by descending ext
     let descending_ext_nodes = nodes.sort((a, b) => a.node.ext - b.node.ext).reverse();
-    console.log(descending_ext_nodes)
 
     // Append a new child node to the dom tree for every instance
     for (let index = 0; index < descending_ext_nodes.length; index++) {
@@ -53,7 +52,7 @@ function buildGrid() {
     }
 }
 
-// creates a HTML entry that is ready for integration into the DOM
+// creates an HTML entry that is ready for integration into the DOM
 function createCellDom(node_id, node) {
 
     // container div
@@ -111,7 +110,6 @@ function createCellDom(node_id, node) {
 function focusNodeById(node_key) {
 
     current_node = node_key
-    console.log(graph_map)
 
     // Update current node panel
     document.getElementById("current-id").innerText = node_key
@@ -127,9 +125,8 @@ function focusNodeById(node_key) {
 }
 
 function initializeBoard(graph) {
-    console.log(graph)
 
-    // By default we display node children, not parents
+    // By default, we display node children, not parents
     child_mode = true
 
     // Convert object to map
