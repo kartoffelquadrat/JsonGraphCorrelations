@@ -14,7 +14,7 @@ Purpose of the analysis is to identify which code changes are overrepresented in
 
 ## Access
 
-The JGC is ready for exploration on [github pages](https://kartoffelquadrat.github.io/JsonGraphCorrelations/).
+The JGC is ready for exploration on [github pages](https://kartoffelquadrat.github.io/JsonGraphCorrelator/).
 
 ## Sources
 
