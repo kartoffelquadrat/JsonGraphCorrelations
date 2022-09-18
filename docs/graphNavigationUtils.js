@@ -40,7 +40,7 @@ function buildGrid() {
 
     // get list of actual child/parent node objects
     let nodes = []
-    unsorted_ids.forEach(function (node_id, index) {
+    unsorted_ids.forEach(function (node_id) {
         nodes.push({"id": node_id, "node": graph_map.get(String(node_id))})
     });
     // sort the child nodes by descending ext
