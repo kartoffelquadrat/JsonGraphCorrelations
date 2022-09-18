@@ -22,10 +22,13 @@ p {
 }
 
 .cell-grid {
-    min-height: 10%;
     background-color: white;
     padding: 6px;
     border-radius: 10px;
+}
+
+.cell-grid-placeholder {
+    min-height: 45%;
 }
 
 .nav-link:focus {
