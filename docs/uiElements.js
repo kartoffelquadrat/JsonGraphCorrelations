@@ -30,5 +30,7 @@ function refreshSettingsState(checkbox_name, class_search_name, toggle_class) {
 }
 
 function isCheckedStatus(checkbox_name) {
-    return document.getElementById(checkbox_name).checked == true
+    let checkbox = document.getElementById(checkbox_name)
+    let status = checkbox.checked == true
+    return status
 }
