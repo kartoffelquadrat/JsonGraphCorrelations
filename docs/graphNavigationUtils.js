@@ -94,7 +94,11 @@ function createCellDom(node_id, node) {
     const span = document.createElement('span')
     span.setAttribute("class", "monospaced")
     const payload_p = document.createElement('p')
-    payload_p.innerText = node.tpl
+    let payload_text = node.tpl
+    if (payload_text === "")
+        payload_p.innerText = "- NO PAYLOAD -"
+    else
+        payload_p.innerText = payload_text
     span.appendChild(payload_p)
     outer_div.appendChild(span)
 
