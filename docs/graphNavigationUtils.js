@@ -2,6 +2,7 @@
 let graph_map
 let root_node
 let current_node
+let child_mode
 
 // Iterates over map and increases counter for every entry that cas no children.
 function countGraphLeaves(graphMap) {
@@ -24,28 +25,31 @@ function findRootNote(graphMap) {
     }
 }
 
-function buildChildGrid(current_node) {
+function buildGrid() {
 
     // clear all cells
     let cell_container = document.getElementById("cell-container")
     cell_container.innerHTML = ""
 
     // get list of all children (only IDs, unsorted)
-    let unsorted_child_ids = graph_map.get(current_node).sub
-    console.log("Children: " + unsorted_child_ids)
+    let unsorted_ids
+    if (child_mode)
+        unsorted_ids = graph_map.get(current_node).sub
+    else
+        unsorted_ids = graph_map.get(current_node).sup
 
-    // get list of actual child node objects
-    let child_nodes = []
-    unsorted_child_ids.forEach(function (node_id, index) {
-        child_nodes.push({"id": node_id, "node": graph_map.get(String(node_id))})
+    // get list of actual child/parent node objects
+    let nodes = []
+    unsorted_ids.forEach(function (node_id, index) {
+        nodes.push({"id": node_id, "node": graph_map.get(String(node_id))})
     });
     // sort the child nodes by descending ext
-    let descending_ext_child_nodes = child_nodes.sort((a, b) => a.node.ext - b.node.ext).reverse();
-    console.log(descending_ext_child_nodes)
+    let descending_ext_nodes = nodes.sort((a, b) => a.node.ext - b.node.ext).reverse();
+    console.log(descending_ext_nodes)
 
     // Append a new child node to the dom tree for every instance
-    for (let child_index = 0; child_index < descending_ext_child_nodes.length; child_index++) {
-        cell_container.appendChild(createCellDom(descending_ext_child_nodes[child_index].id, descending_ext_child_nodes[child_index].node))
+    for (let index = 0; index < descending_ext_nodes.length; index++) {
+        cell_container.appendChild(createCellDom(descending_ext_nodes[index].id, descending_ext_nodes[index].node))
     }
 }
 
@@ -119,12 +123,14 @@ function focusNodeById(node_key) {
         document.getElementById("current-payload").innerText = graph_map.get(node_key).tpl
 
     // update specialization / generalization panel
-    // FOR NOW: only children
-    buildChildGrid(current_node)
+    buildGrid()
 }
 
 function initializeBoard(graph) {
     console.log(graph)
+
+    // By default we display node children, not parents
+    child_mode = true
 
     // Convert object to map
     graph_map = new Map(Object.entries(graph))
