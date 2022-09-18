@@ -84,6 +84,10 @@ function createCellDom(node_id, node) {
     span.appendChild(payload_p)
     outer_div.appendChild(span)
 
+    // associate click handler to element
+    container_div.addEventListener("click", () => focusNodeById(String(node_id)));
+
+
     // return the full template
     container_div.appendChild(outer_div)
     return container_div
