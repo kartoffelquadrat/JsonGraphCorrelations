@@ -81,7 +81,7 @@ function createCellDom(node_id, node) {
 
     // second inner div (Ext)
     const ext_div = document.createElement('div')
-    if (isCheckedStatus('switchIdentifiers'))
+    if (isCheckedStatus('switchExtensions'))
         ext_div.setAttribute("class", "extension-line")
     else
         ext_div.setAttribute("class", "extension-line hidden-line")
