@@ -32,42 +32,61 @@ function buildChildGrid(current_node) {
     let cell_container = document.getElementById("cell-container")
     cell_container.innerHTML = ""
 
-    const map1 = new Map();
-
-    map1.set('a', 1);
-    map1.set('a', 2);
-    map1.set('c', 3);
-    console.log(map1)
-
     // get list of all children (only IDs, unsorted)
     let unsorted_child_ids = graph_map.get(current_node).sub
     console.log("Children: " + unsorted_child_ids)
 
     // get list of actual child node objects
     let child_nodes = []
-    unsorted_child_ids.forEach(function (item, index) {
-        child_nodes.push(graph_map.get(String(item)))
+    unsorted_child_ids.forEach(function (node_id, index) {
+        child_nodes.push({"id": node_id, "node": graph_map.get(String(node_id))})
     });
     // sort the child nodes by descending ext
-    let descending_ext_child_nodes = child_nodes.sort((a, b) => a.ext - b.ext).reverse();
+    let descending_ext_child_nodes = child_nodes.sort((a, b) => a.node.ext - b.node.ext).reverse();
     console.log(descending_ext_child_nodes)
 
-    // sort children by extensions (calue is ext, key is child id - if other way round the nodes could erase one another if same ext)
-    // let ext_children = new Map()
-    // unsorted_children.forEach(function (item, index) {
-    //     ext_children.set(item, graph_map.get(String(item)).ext)
-    // });
-    //
-    //
-    // console.log(ext_children)
-    // let mapAsc = new Map([ext_children.entries()].sort());
-    //
+    // Append a new child node to the dom tree for every instance
+    cell_container.appendChild(createCellDom(descending_ext_child_nodes[0].id, descending_ext_child_nodes[0].node))
+}
 
+// creates a HTML entry that is ready for integration into the DOM
+function createCellDom(node_id, node) {
 
-    // append a cell for each child
-    // children.forEach(function (item, index) {
-    //     console.log(item, index);
-    // });
+    // container div
+    const container_div = document.createElement('div')
+    container_div.setAttribute("class", "cell-container")
+
+    // outer div
+    const outer_div = document.createElement('div')
+    outer_div.setAttribute("class", "node-cell node-cell-selectable")
+
+    // first inner div (ID)
+    const id_div = document.createElement('div')
+    id_div.setAttribute("class", "id-line")
+    const id_p = document.createElement('p')
+    id_p.innerText = "ID: " + node_id
+    id_div.appendChild(id_p)
+    outer_div.appendChild(id_div)
+
+    // second inner div (Ext)
+    const ext_div = document.createElement('div')
+    ext_div.setAttribute("class", "extension-line")
+    const ext_p = document.createElement('p')
+    ext_p.innerText = "Extensions: " + node.ext
+    ext_div.appendChild(ext_p)
+    outer_div.appendChild(ext_div)
+
+    // span with code
+    const span = document.createElement('span')
+    span.setAttribute("class", "monospaced")
+    const payload_p = document.createElement('p')
+    payload_p.innerText = node.tpl
+    span.appendChild(payload_p)
+    outer_div.appendChild(span)
+
+    // return the full template
+    container_div.appendChild(outer_div)
+    return container_div
 }
 
 // updates the static information field for the current node
