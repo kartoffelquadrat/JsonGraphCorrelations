@@ -1,1 +1,0 @@
-{"1":{"tpl":"self.background_rectangle = BackgroundRectangle(self)\nself.add_to_back(self.background_rectangle)\n","ext":1,"sub":[],"sup":[17173,17200,17202,17207,17219,17220,17223]},"2":{"tpl":"self.x_labels = num_arr_to_string_arr(self.x_mids)\n","ext":1,"sub":[],"sup":[17236]}}

@@ -1,26 +1,35 @@
-# Json Graph Correlations
+# Json Graph Correlator (JGC)
 
 Minimal Graph navigation based on parent / child correlations.
 
 ![webstorm](https://img.shields.io/badge/WebStorm-2022.2.2-blue)
 ![clojure linter](https://img.shields.io/badge/Clojure%20Linter-202.1-blue)
+![boostrap css](https://img.shields.io/badge/Bootstrap%20CSS-4.1.3-blue)
 
-## Hosting
+## About
 
-All static webpage files are in [```docs```](docs) for easy deployment as [github pages](...).
+This repository hosts sources of the *Json Graph Correlator* (JGC), an interactive website to explore git-commit diff
+data, mined form github.  
+Purpose of the analysis is to identify which code changes are overrepresented in the context of bugfix commits.
 
-## Relevant Technologies
+## Access
 
-Graph is a [10MB uncompressed file](graph.json). Can boil it down to [2.5MB with gzip compression](docs/minified_lattice.json.gz): ```gzip minified_lattice.json```
+The JGC is ready for exploration on [github pages](https://kartoffelquadrat.github.io/JsonGraphCorrelations/).
 
-Unzip paco snippet:
-https://stackoverflow.com/a/50713030
-https://stackoverflow.com/a/22428819
+## Sources
 
-Unzip jsx decompress:
-https://stackoverflow.com/a/5633128
+The JCG sources and graph data are located in the [```docs``` directory](docs):
 
-## Autor / Contribution Statements
+* Sources
+    * ```docs/index.html```: Static parts of JGC DOM-Tree
+    * ```docs/styles.css```: Custom styles, mostly for grid-view and side-by side panels.
+    * ```docs/graphNavigationUtils.js```: JavaScript functions for graph parsing and dynamic DOM updates.
+    * ```docs/uiElements```: JavaScript functions to replace BootStrap overhead (we only use BootStrap's CSS)
+* Graph data:
+    * [```minified_lattice.json```](minified_lattice.json): Graph data as JSON map. Every entry represents a node-id +
+      associated data.
 
- * Graph Data:  
- * HTML / JS Implementation:  
+## Contributions / Pull Requests
+
+* Graph Data: [Jessie Galasso-Carbonnel](https://jgalasso.github.io/), Université de Montréal
+* HTML / JS Implementation: [Maximilian Schiedermeier](https://www.cs.mcgill.ca/~mschie3/). McGill University 
