@@ -44,11 +44,20 @@ p {
 }
 
 .node-cell {
+    min-height: 88px;
     border-radius: 10px;
     background-color: #d7d7d7;
     padding: 10px;
     margin: 5px !important;
     transition: 0.3s;
+}
+
+.limit-height {
+    max-height: 88px;
+    text-overflow: ellipsis;
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .node-cell-selectable:hover {

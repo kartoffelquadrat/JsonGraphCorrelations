@@ -60,7 +60,7 @@ function createCellDom(node_id, node) {
 
     // outer div
     const outer_div = document.createElement('div')
-    outer_div.setAttribute("class", "node-cell node-cell-selectable")
+    outer_div.setAttribute("class", "node-cell node-cell-selectable limit-height")
 
     // first inner div (ID)
     const id_div = document.createElement('div')

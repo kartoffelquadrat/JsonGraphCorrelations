@@ -50,6 +50,10 @@
                             <input class="form-check-input" type="checkbox" id="switchExtensions" checked>
                             <label class="form-check-label" for="switchExtensions">Show Extensions</label>
                         </div>
+                        <div class="settings-element form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="switchHeightLimit">
+                            <label class="form-check-label" for="switchHeightLimit">Dynamic Payload Height</label>
+                        </div>
                         <button type="button" id="focus-root" class="btn btn-outline-danger">Focus Root-Node</button>
                     </div>
 
@@ -81,7 +85,7 @@
                         <div class="cell-grid" id="parentcells">
                             <div class="cell-row">
                                 <div class="cell-container">
-                                    <div class="node-cell">
+                                    <div class="node-cell limit-height">
                                         <div class="id-line ">
                                             <p>ID: </p>
                                             <p id="current-id">---</p>
