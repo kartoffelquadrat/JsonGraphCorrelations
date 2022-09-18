@@ -124,6 +124,9 @@ function focusNodeById(node_key) {
     else
         document.getElementById("current-payload").innerText = graph_map.get(node_key).tpl
 
+    // focus on child tab. Root has no parents to display
+    toggleTabs("children")
+
     // update specialization / generalization panel
     buildGrid()
 }
