@@ -2,8 +2,6 @@
 let graph_map
 let root_node
 let current_node
-let current_children = []
-let current_parents = []
 
 // Iterates over map and increases counter for every entry that cas no children.
 function countGraphLeaves(graphMap) {
@@ -94,6 +92,7 @@ function createCellDom(node_id, node) {
 // updates the static information field for the current node
 function focusNodeById(node_key) {
 
+    current_node = node_key
     console.log(graph_map)
     // Update current node panel
     document.getElementById("current-id").innerText = node_key

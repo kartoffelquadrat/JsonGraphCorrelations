@@ -22,6 +22,7 @@ p {
 }
 
 .cell-grid {
+    min-height: 10%;
     background-color: white;
     padding: 6px;
     border-radius: 10px;
@@ -72,6 +73,7 @@ p {
 }
 
 .cell-container {
+    /*padding-top: 100px; !important;*/
     float: left;
     width: 33.33% !important;
     padding: 0px !important;
