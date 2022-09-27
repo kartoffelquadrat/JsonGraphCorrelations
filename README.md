@@ -44,5 +44,5 @@ The JCG sources and graph data are located in the [```docs``` directory](docs):
 
 ## Contributions / Pull Requests
 
-* Graph Data: [Jessie Galasso-Carbonnel](https://jgalasso.github.io/), Université de Montréal
-* HTML / JS Implementation: [Maximilian Schiedermeier](https://www.cs.mcgill.ca/~mschie3/). McGill University 
+ * Graph Data: [Jessie Galasso-Carbonnel](https://jgalasso.github.io/), Université de Montréal
+ * HTML / JS Implementation: [Maximilian Schiedermeier](https://www.cs.mcgill.ca/~mschie3/), McGill University 
