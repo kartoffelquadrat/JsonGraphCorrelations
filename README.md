@@ -39,7 +39,7 @@ The JCG sources and graph data are located in the [```docs``` directory](docs):
     * ```docs/graphNavigationUtils.js```: JavaScript functions for graph parsing and dynamic DOM updates.
     * ```docs/uiElements```: JavaScript functions to replace BootStrap overhead (we only use BootStrap's CSS)
 * Graph data:
-    * [```docs/minified_lattice.json```](minified_lattice.json): Graph data as JSON map. Every entry represents a node-id +
+    * [```docs/minified_lattice.json```](docs/minified_lattice.json): Graph data as JSON map. Every entry represents a node-id +
       associated data.
 
 ## Contributions / Pull Requests
