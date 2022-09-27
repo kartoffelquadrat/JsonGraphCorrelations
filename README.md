@@ -15,6 +15,19 @@ Purpose of the analysis is to identify which code changes are overrepresented in
 
 The JGC is ready for exploration on [github pages](https://kartoffelquadrat.github.io/JsonGraphCorrelator/).
 
+### Usage
+
+ * Graph exploration starts at the root node, which is the default node in *Node Info* section.
+ * Click on sub or parent nodes, using the *Related Nodes* section.
+ * At any time you can jump back to the root node, using the *Focus Root-Node* button.
+
+Other features:  
+Use the checkboxes to enable / disable:
+
+ * *Show Identifiers*, to show / hide node IDs.
+ * *Show Extensions*, to show / hide node extension counters.
+ * *Dynamic Payload Height*, to auto-grow node concepts to wrap overly long content, rather than cropping to an excerpt.
+
 ## Sources
 
 The JCG sources and graph data are located in the [```docs``` directory](docs):
@@ -25,7 +38,7 @@ The JCG sources and graph data are located in the [```docs``` directory](docs):
     * ```docs/graphNavigationUtils.js```: JavaScript functions for graph parsing and dynamic DOM updates.
     * ```docs/uiElements```: JavaScript functions to replace BootStrap overhead (we only use BootStrap's CSS)
 * Graph data:
-    * [```minified_lattice.json```](minified_lattice.json): Graph data as JSON map. Every entry represents a node-id +
+    * [```docs/minified_lattice.json```](minified_lattice.json): Graph data as JSON map. Every entry represents a node-id +
       associated data.
 
 ## Contributions / Pull Requests
