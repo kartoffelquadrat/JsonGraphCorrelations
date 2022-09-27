@@ -21,7 +21,8 @@ The JGC is ready for exploration on [github pages](https://kartoffelquadrat.gith
  * Click on sub or parent nodes, using the *Related Nodes* section.
  * At any time you can jump back to the root node, using the *Focus Root-Node* button.
 
-Other features:  
+#### Other Features
+
 Use the checkboxes to enable / disable:
 
  * *Show Identifiers*, to show / hide node IDs.
