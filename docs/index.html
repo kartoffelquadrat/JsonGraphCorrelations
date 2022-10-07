@@ -5,14 +5,20 @@
 
     <!--Support for iOS HomeScreen App shortcut-->
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=1" />
+    <meta name="viewport"
+          content="target-densitydpi=device-dpi, width=device-width, user-scalable=no, maximum-scale=1, minimum-scale=1"/>
     <meta name="apple-mobile-web-app-title" content="JGC">
 
     <!-- Bootstrap and custom stylesheets-->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="bootstrap.min.css">
+
+    <!-- Custom multi range slider-->
+    <!-- See: https://refreshless.com/nouislider/ -->
+    <link href="nouislider.css" rel="stylesheet">
+    <script src="nouislider.js"></script>
 </head>
-<body onload="registerElementListeners(); loadGraph()">
+<body onload="registerElementListeners(); loadGraph(); buildSliderFilter();">
 
 
 <div id=RowDivWithBackground class="container fill bg-light">
@@ -63,6 +69,9 @@
                             <label class="form-check-label" for="switchHeightLimit">Dynamic Payload Height</label>
                         </div>
                         <button type="button" id="focus-root" class="btn btn-outline-danger">Focus Root-Node</button>
+
+                        <!-- Multi range slider for filtering-->
+                        <div id="slider"></div>
                     </div>
 
                     <!-- Statistics -->
