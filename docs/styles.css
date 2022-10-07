@@ -143,3 +143,10 @@ li {
     display: none
 }
 
+/*Adjust slider aspect ratio*/
+#slider {
+    transform: scaleY(0.6);
+    margin-bottom: 6px;
+    margin-top: 2px;
+
+}
