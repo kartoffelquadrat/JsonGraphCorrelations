@@ -148,5 +148,16 @@ li {
     transform: scaleY(0.6);
     margin-bottom: 6px;
     margin-top: 2px;
+}
 
+#checkbox-spacer {
+    height: 2px;
+}
+
+#danger-spacer {
+    height: 12px;
+}
+
+#danger-sub-spacer {
+    height: 4px;
 }

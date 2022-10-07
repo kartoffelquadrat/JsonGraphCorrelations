@@ -56,6 +56,7 @@
                     <!-- Settings -->
                     <div class="split-div highlight-section">
                         <h3>Settings</h3>
+                        <div id="checkbox-spacer"></div>
                         <div class="settings-element form-check form-switch">
                             <input class="form-check-input" type="checkbox" id="switchIdentifiers" checked>
                             <label class="form-check-label" for="switchIdentifiers">Show Identifiers</label>
@@ -68,16 +69,27 @@
                             <input class="form-check-input" type="checkbox" id="switchHeightLimit">
                             <label class="form-check-label" for="switchHeightLimit">Dynamic Payload Height</label>
                         </div>
+                        <!--Separated space for buttons-->
+                        <div id="danger-spacer"></div>
+                        Danger Zone:<br/>
+                        <div id="danger-sub-spacer"></div>
                         <button type="button" id="focus-root" class="btn btn-outline-danger">Focus Root-Node</button>
+<!--                        <button type="button" id="reset-range" class="btn btn-outline-danger">Reset Extension Filter-->
+                        </button>
+
                     </div>
 
-              <!-- Statistics -->
+                    <!-- Statistics -->
                     <div class="split-div-right highlight-section">
-                        <h3>Graph Filter</h3>
-                            <!-- Multi range slider for filtering-->
+                        <h3>Node Filter</h3>
+                        <!-- Multi range slider for filtering-->
                         Extension Range:
                         <div id="slider"></div>
-                        Node Stats:
+                    </div>
+
+                    <div class="split-div-right highlight-section">
+                        <h3>Graph Stats</h3>
+                        <!-- Node Stats:-->
                         <ul>
                             <li><p>Total nodes: </p>
                                 <p id="stats-total">---</p></li>
@@ -85,10 +97,6 @@
                                 <p id="stats-leaves">---</p></li>
                             <li><p>Root identifier: </p>
                                 <p id="stats-root">---</p></li>
-<!--                            <li><p>Min. Extensions: </p>-->
-<!--                                <p id="stats-total">-&#45;&#45;</p></li>-->
-<!--                            <li><p>Max. Extensions: </p>-->
-<!--                                <p id="stats-leaves">-&#45;&#45;</p></li>-->
                         </ul>
 
                     </div>
