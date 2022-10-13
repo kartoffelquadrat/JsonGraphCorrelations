@@ -147,7 +147,14 @@ function initializeBoard(graph) {
     document.getElementById("stats-root").innerText = root_node
 
     // Focus root node
-    focusNodeById(root_node, graph_map.get(root_node))
+    // focusNodeById(root_node, graph_map.get(root_node))
+    focusNodeById(root_node)
+
+    // Extract max extension range (is extension of root) TODO pass to slider
+    let max_ext = graph_map.get(root_node).ext
+
+    // Load UI slider
+    buildSliderFilter(max_ext)
 }
 
 function loadGraph() {

@@ -18,10 +18,10 @@
     <link href="nouislider.css" rel="stylesheet">
     <script src="nouislider.js"></script>
 </head>
-<body onload="registerElementListeners(); loadGraph(); buildSliderFilter();">
+<body onload="registerElementListeners(); loadGraph()">
 
 
-<div id=RowDivWithBackground class="container fill bg-light">
+<div id=RowDivWithBackground class="container fill bg-light min-container-width">
 
     <!--    NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -54,7 +54,7 @@
             <div class="page-section">
                 <div id="container-div">
                     <!-- Settings -->
-                    <div class="split-div highlight-section">
+                    <div id="settings-box" class="split-div highlight-section">
                         <h3>Settings</h3>
                         <div id="checkbox-spacer"></div>
                         <div class="settings-element form-check form-switch">
@@ -81,13 +81,12 @@
 
                     <!-- Statistics -->
                     <div class="split-div-right highlight-section">
-                        <h3>Node Filter</h3>
+                        <h3>Extension Filter</h3>
                         <!-- Multi range slider for filtering-->
-                        Extension Range:
                         <div id="slider"></div>
                     </div>
 
-                    <div class="split-div-right highlight-section">
+                    <div id="stats-box" class="split-div-right highlight-section">
                         <h3>Graph Stats</h3>
                         <!-- Node Stats:-->
                         <ul>
@@ -98,7 +97,6 @@
                             <li><p>Root identifier: </p>
                                 <p id="stats-root">---</p></li>
                         </ul>
-
                     </div>
 
                 </div>

@@ -1,12 +1,17 @@
-function buildSliderFilter() {
+function buildSliderFilter(max_value) {
     let slider = document.getElementById('slider');
 
     noUiSlider.create(slider, {
-        start: [20, 80],
-        connect: true,
+        start: [0, max_value],  // start with full range
+        connect: true,  // coloured bars between handles
         range: {
             'min': 0,
-            'max': 100
+            'max': max_value
+        },
+        pips: {
+            mode: 'steps',
+            stepped: true,
+            density: 4
         }
     });
 }

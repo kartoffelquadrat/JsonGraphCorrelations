@@ -3,6 +3,21 @@ h1, h2 {
     padding-bottom: 1%;
 }
 
+/*.container-1000 {*/
+/*    width: 100%;*/
+/*    min-width: 1200px;*/
+/*    padding-left: 15px;*/
+/*    padding-right: 15px;*/
+/*    margin: 0 auto;*/
+/*    !*background-color: #ff0000;*!*/
+/*    background-color: #f8f9fa;*/
+/*}*/
+
+.min-container-width {
+    min-width: 1200px;
+    overflow: scroll;
+}
+
 p {
     margin-bottom: 0px !important;
     display: inline-block;
@@ -101,6 +116,10 @@ li {
 }
 
 #jgc-container {
+    /*min-width: 1110px; !important;*/
+    /*min-block-size: 990px;*/
+    /*min-width: 990px;*/
+    /*min-inline-size: 990px;*/
     margin-top: 4%;
     width: 97%;
     padding: 10px;
@@ -116,6 +135,15 @@ li {
     padding-right: 15px; !important;
 }
 
+#stats-box {
+    margin-top: 11px; !important;
+    padding-bottom: 0%; !important;
+}
+
+#settings-box {
+    min-height: 260px;
+}
+
 .settings-element {
     padding-bottom: 2px;
 }
@@ -124,12 +152,12 @@ li {
 
 .split-div {
     float: left;
-    width: 49%;
+    width: 49.5%;
 }
 
 .split-div-right {
     float: right;
-    width: 49%;
+    width: 49.5%;
 }
 
 /* Clear floats after the columns */
@@ -145,9 +173,21 @@ li {
 
 /*Adjust slider aspect ratio*/
 #slider {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 28px;
+}
+
+/*.noUi-base {*/
+.noUi-target {
     transform: scaleY(0.6);
     margin-bottom: 6px;
     margin-top: 2px;
+}
+
+.noUi-pips {
+    transform: scaleY(1.5);
+    margin-top: 10px;
 }
 
 #checkbox-spacer {
