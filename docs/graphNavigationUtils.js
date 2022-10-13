@@ -1,6 +1,6 @@
 // Global variable that all functions cn access anytime, e.g. to recenter on root node without reloading entire graph from disk.
-let graph_map
-let root_node
+let unfiltered_graph_map
+let unfiltered_root_node
 let current_node
 let child_mode
 
@@ -34,14 +34,14 @@ function buildGrid() {
     // get list of all children (only IDs, unsorted)
     let unsorted_ids
     if (child_mode)
-        unsorted_ids = graph_map.get(current_node).sub
+        unsorted_ids = unfiltered_graph_map.get(current_node).sub
     else
-        unsorted_ids = graph_map.get(current_node).sup
+        unsorted_ids = unfiltered_graph_map.get(current_node).sup
 
     // get list of actual child/parent node objects
     let nodes = []
     unsorted_ids.forEach(function (node_id) {
-        nodes.push({"id": node_id, "node": graph_map.get(String(node_id))})
+        nodes.push({"id": node_id, "node": unfiltered_graph_map.get(String(node_id))})
     });
     // sort the child nodes by descending ext
     let descending_ext_nodes = nodes.sort((a, b) => a.node.ext - b.node.ext).reverse();
@@ -117,12 +117,12 @@ function focusNodeById(node_key) {
 
     // Update current node panel
     document.getElementById("current-id").innerText = node_key
-    document.getElementById("current-extensions").innerText = graph_map.get(node_key).ext
-    let node = graph_map.get(node_key)
+    document.getElementById("current-extensions").innerText = unfiltered_graph_map.get(node_key).ext
+    let node = unfiltered_graph_map.get(node_key)
     if (node.tpl === "")
         document.getElementById("current-payload").innerText = "- NO PAYLOAD -"
     else
-        document.getElementById("current-payload").innerText = graph_map.get(node_key).tpl
+        document.getElementById("current-payload").innerText = unfiltered_graph_map.get(node_key).tpl
 
     // focus on child tab. Root has no parents to display
     toggleTabs("children")
@@ -137,21 +137,21 @@ function initializeBoard(graph) {
     child_mode = true
 
     // Convert object to map
-    graph_map = new Map(Object.entries(graph))
+    unfiltered_graph_map = new Map(Object.entries(graph))
 
     // Update stats
-    root_node = findRootNote(graph_map)
-    current_node = root_node
-    document.getElementById("stats-total").innerText = graph_map.size
-    document.getElementById("stats-leaves").innerText = countGraphLeaves(graph_map)
-    document.getElementById("stats-root").innerText = root_node
+    unfiltered_root_node = findRootNote(unfiltered_graph_map)
+    current_node = unfiltered_root_node
+    document.getElementById("stats-total").innerText = unfiltered_graph_map.size
+    document.getElementById("stats-leaves").innerText = countGraphLeaves(unfiltered_graph_map)
+    document.getElementById("stats-root").innerText = unfiltered_root_node
 
     // Focus root node
     // focusNodeById(root_node, graph_map.get(root_node))
-    focusNodeById(root_node)
+    focusNodeById(unfiltered_root_node)
 
     // Extract max extension range (is extension of root) TODO pass to slider
-    let max_ext = graph_map.get(root_node).ext
+    let max_ext = unfiltered_graph_map.get(unfiltered_root_node).ext
 
     // Load UI slider
     buildSliderFilter(max_ext)

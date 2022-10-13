@@ -1,9 +1,12 @@
+let slider;
+
 function buildSliderFilter(max_value) {
-    let slider = document.getElementById('slider');
+    slider = document.getElementById('slider');
 
     noUiSlider.create(slider, {
         start: [0, max_value],  // start with full range
         connect: true,  // coloured bars between handles
+         // step: 10000, // this one adds labeled ticks below, but unfortunately also adds snapping
         range: {
             'min': 0,
             'max': max_value
@@ -23,13 +26,16 @@ function buildSliderFilter(max_value) {
  * Called whenever the slider range is changed.
  */
 function handleSliderChange() {
-    console.log("Registered slider change.")
+    let slider_values = slider.noUiSlider.get()
+    let ext_min = Math.round( slider_values[0]);
+    let ext_max = Math.round( slider_values[1]);
+    console.log("Registered slider change: Min="+ext_min+", Max="+ext_max)
 }
 
 function registerElementListeners() {
     document.getElementById('children-tab').addEventListener("click", () => toggleTabs("children"));
     document.getElementById('parents-tab').addEventListener("click", () => toggleTabs("parents"));
-    document.getElementById('focus-root').addEventListener("click", () => focusNodeById(root_node));
+    document.getElementById('focus-root').addEventListener("click", () => focusNodeById(unfiltered_root_node));
     document.getElementById('switchExtensions').addEventListener("click", () => refreshSettingsState('switchExtensions', 'extension-line', 'hidden-line'));
     document.getElementById('switchIdentifiers').addEventListener("click", () => refreshSettingsState('switchIdentifiers', 'id-line', 'hidden-line'));
     document.getElementById('switchHeightLimit').addEventListener("click", () => refreshSettingsState('switchHeightLimit', 'node-cell', 'limit-height'));
