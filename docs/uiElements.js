@@ -14,6 +14,16 @@ function buildSliderFilter(max_value) {
             density: 4
         }
     });
+
+    // Associate handlers to changed ranges. Gets called no matter which end was touched.
+    slider.noUiSlider.on('set', handleSliderChange)
+}
+
+/**
+ * Called whenever the slider range is changed.
+ */
+function handleSliderChange() {
+    console.log("Registered slider change.")
 }
 
 function registerElementListeners() {
