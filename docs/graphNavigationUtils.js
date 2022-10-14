@@ -1,6 +1,6 @@
 // Global variable that all functions cn access anytime, e.g. to recenter on root node without reloading entire graph from disk.
-let unfiltered_graph_map
-let unfiltered_root_node
+let graph_map
+let root_node
 let current_node
 let child_mode
 
@@ -27,6 +27,8 @@ function findRootNote(graphMap) {
 
 function buildGrid() {
 
+    console.log("Rendering grid")
+
     // clear all cells
     let cell_container = document.getElementById("cell-container")
     cell_container.innerHTML = ""
@@ -34,30 +36,39 @@ function buildGrid() {
     // get list of all children (only IDs, unsorted)
     let unsorted_ids
     if (child_mode)
-        unsorted_ids = unfiltered_graph_map.get(current_node).sub
+        unsorted_ids = graph_map.get(current_node).sub
     else
-        unsorted_ids = unfiltered_graph_map.get(current_node).sup
+        unsorted_ids = graph_map.get(current_node).sup
 
     // get list of actual child/parent node objects
     let nodes = []
     unsorted_ids.forEach(function (node_id) {
-        nodes.push({"id": node_id, "node": unfiltered_graph_map.get(String(node_id))})
+        nodes.push({"id": node_id, "node": graph_map.get(String(node_id))})
     });
+
     // sort the child nodes by descending ext
     let descending_ext_nodes = nodes.sort((a, b) => a.node.ext - b.node.ext).reverse();
 
+    // Look up extension threshold
+    const ext_filter_threshold = getFilterValue()
+
     // Append a new child node to the dom tree for every instance
     for (let index = 0; index < descending_ext_nodes.length; index++) {
-        cell_container.appendChild(createCellDom(descending_ext_nodes[index].id, descending_ext_nodes[index].node))
+        cell_container.appendChild(createCellDom(descending_ext_nodes[index].id, descending_ext_nodes[index].node, ext_filter_threshold))
     }
 }
 
 // creates an HTML entry that is ready for integration into the DOM
-function createCellDom(node_id, node) {
+function createCellDom(node_id, node, ext_filter_threshold) {
+
+    // TODO: Set opacity class based on current ext ant threshold
 
     // container div
     const container_div = document.createElement('div')
-    container_div.setAttribute("class", "cell-container")
+    if(node.ext >= ext_filter_threshold) {
+        container_div.setAttribute("class", "cell-container") }
+    else {
+        container_div.setAttribute("class", "cell-container cell-container-excluded") }
 
     // outer div
     const outer_div = document.createElement('div')
@@ -117,12 +128,12 @@ function focusNodeById(node_key) {
 
     // Update current node panel
     document.getElementById("current-id").innerText = node_key
-    document.getElementById("current-extensions").innerText = unfiltered_graph_map.get(node_key).ext
-    let node = unfiltered_graph_map.get(node_key)
+    document.getElementById("current-extensions").innerText = graph_map.get(node_key).ext
+    let node = graph_map.get(node_key)
     if (node.tpl === "")
         document.getElementById("current-payload").innerText = "- NO PAYLOAD -"
     else
-        document.getElementById("current-payload").innerText = unfiltered_graph_map.get(node_key).tpl
+        document.getElementById("current-payload").innerText = graph_map.get(node_key).tpl
 
     // focus on child tab. Root has no parents to display
     toggleTabs("children")
@@ -137,21 +148,21 @@ function initializeBoard(graph) {
     child_mode = true
 
     // Convert object to map
-    unfiltered_graph_map = new Map(Object.entries(graph))
+    graph_map = new Map(Object.entries(graph))
 
     // Update stats
-    unfiltered_root_node = findRootNote(unfiltered_graph_map)
-    current_node = unfiltered_root_node
-    document.getElementById("stats-total").innerText = unfiltered_graph_map.size
-    document.getElementById("stats-leaves").innerText = countGraphLeaves(unfiltered_graph_map)
-    document.getElementById("stats-root").innerText = unfiltered_root_node
+    root_node = findRootNote(graph_map)
+    current_node = root_node
+    document.getElementById("stats-total").innerText = graph_map.size
+    document.getElementById("stats-leaves").innerText = countGraphLeaves(graph_map)
+    document.getElementById("stats-root").innerText = root_node
 
     // Focus root node
     // focusNodeById(root_node, graph_map.get(root_node))
-    focusNodeById(unfiltered_root_node)
+    // focusNodeById(root_node)
 
     // Extract max extension range (is extension of root) TODO pass to slider
-    let max_ext = unfiltered_graph_map.get(unfiltered_root_node).ext
+    let max_ext = graph_map.get(root_node).ext
 
     // Load UI slider
     buildSliderFilter(max_ext)

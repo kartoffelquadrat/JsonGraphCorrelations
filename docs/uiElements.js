@@ -25,30 +25,37 @@ function buildSliderFilter(max_value) {
 
     // Associate handlers to changed ranges. Gets called no matter which end was touched.
     slider.noUiSlider.on('set', handleSliderChange)
+
+    // Build initial
+    focusNodeById(root_node)
+
+}
+
+function getFilterValue() {
+        let slider_value = slider.noUiSlider.get()
+        return Math.round(slider_value)
 }
 
 function resetSlider() {
     slider.noUiSlider.set([0, slider_max_value])
-
-    // TODO: also trigger reset of graph excerpt to full graph
+    buildGrid()
 }
 
 /**
  * Called whenever the slider range is changed.
  */
 function handleSliderChange() {
-    let slider_value = slider.noUiSlider.get()
-    console.log(slider_value)
-    let ext_min = Math.round(slider_value)
-    // let ext_max = Math.round( slider_values[1]);
+
+    let ext_min = getFilterValue()
     console.log("Registered slider change: Min="+ext_min)
     document.getElementById('min-ext-value').innerText=ext_min
+    buildGrid()
 }
 
 function registerElementListeners() {
     document.getElementById('children-tab').addEventListener("click", () => toggleTabs("children"));
     document.getElementById('parents-tab').addEventListener("click", () => toggleTabs("parents"));
-    document.getElementById('focus-root').addEventListener("click", () => {focusNodeById(unfiltered_root_node); resetSlider()});
+    document.getElementById('focus-root').addEventListener("click", () => focusNodeById(root_node));
     document.getElementById('reset-range').addEventListener("click", () => resetSlider());
     document.getElementById('switchExtensions').addEventListener("click", () => refreshSettingsState('switchExtensions', 'extension-line', 'hidden-line'));
     document.getElementById('switchIdentifiers').addEventListener("click", () => refreshSettingsState('switchIdentifiers', 'id-line', 'hidden-line'));

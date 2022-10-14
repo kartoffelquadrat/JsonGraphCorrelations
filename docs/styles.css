@@ -78,6 +78,11 @@ p {
     box-shadow: 2px 2px 15px 3px rgba(23, 119, 255, 0.4);
 }
 
+/*Gets activated whenever a node does not fall into the current filter range.*/
+.cell-container-excluded {
+    opacity: 40%;
+}
+
 #node-info {
     margin-top: 10px;
     margin-left: 10px;
@@ -119,18 +124,27 @@ li {
 }
 
 .highlight-section {
-    margin-top: 2%; !important;
-    border-radius: 25px; !important;
-    background: #ececec; !important;
-    padding-bottom: 1%; !important;
-    padding-top: 10px; !important;
-    padding-left: 15px; !important;
-    padding-right: 15px; !important;
+    margin-top: 2%;
+!important;
+    border-radius: 25px;
+!important;
+    background: #ececec;
+!important;
+    padding-bottom: 1%;
+!important;
+    padding-top: 10px;
+!important;
+    padding-left: 15px;
+!important;
+    padding-right: 15px;
+!important;
 }
 
 #stats-box {
-    margin-top: 11px; !important;
-    padding-bottom: 0%; !important;
+    margin-top: 11px;
+!important;
+    padding-bottom: 0%;
+!important;
 }
 
 #settings-box {
@@ -140,7 +154,6 @@ li {
 .settings-element {
     padding-bottom: 2px;
 }
-
 
 
 .split-div {
