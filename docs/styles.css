@@ -114,6 +114,7 @@ li {
 }
 
 .body {
+    transform: scale(0.8);
     background-color: #b6b6b6;
     display: flex;
     font-family: sans-serif;
