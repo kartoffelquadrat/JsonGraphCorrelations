@@ -24,7 +24,7 @@ function buildSliderFilter(max_value) {
     document.querySelector('.noUi-value').remove();
 
     // Associate handlers to changed ranges. Gets called no matter which end was touched.
-    slider.noUiSlider.on('set', handleSliderChange)
+    slider.noUiSlider.on('update', handleSliderChange)
 
     // Build initial
     focusNodeById(root_node)
