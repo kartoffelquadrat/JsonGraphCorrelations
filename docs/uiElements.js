@@ -1,7 +1,9 @@
 let slider;
+let slider_max_value;
 
 function buildSliderFilter(max_value) {
     slider = document.getElementById('slider');
+    slider_max_value = max_value
 
     noUiSlider.create(slider, {
         start: [0, max_value],  // start with full range
@@ -22,6 +24,12 @@ function buildSliderFilter(max_value) {
     slider.noUiSlider.on('set', handleSliderChange)
 }
 
+function resetSlider() {
+    slider.noUiSlider.set([0, slider_max_value])
+
+    // TODO: also trigger reset of graph excerpt to full graph
+}
+
 /**
  * Called whenever the slider range is changed.
  */
@@ -35,7 +43,7 @@ function handleSliderChange() {
 function registerElementListeners() {
     document.getElementById('children-tab').addEventListener("click", () => toggleTabs("children"));
     document.getElementById('parents-tab').addEventListener("click", () => toggleTabs("parents"));
-    document.getElementById('focus-root').addEventListener("click", () => focusNodeById(unfiltered_root_node));
+    document.getElementById('focus-root').addEventListener("click", () => {focusNodeById(unfiltered_root_node); resetSlider()});
     document.getElementById('switchExtensions').addEventListener("click", () => refreshSettingsState('switchExtensions', 'extension-line', 'hidden-line'));
     document.getElementById('switchIdentifiers').addEventListener("click", () => refreshSettingsState('switchIdentifiers', 'id-line', 'hidden-line'));
     document.getElementById('switchHeightLimit').addEventListener("click", () => refreshSettingsState('switchHeightLimit', 'node-cell', 'limit-height'));
