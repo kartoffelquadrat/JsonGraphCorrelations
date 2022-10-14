@@ -20,6 +20,9 @@ function buildSliderFilter(max_value) {
         }
     });
 
+    // Remove start value
+    document.querySelector('.noUi-value').remove();
+
     // Associate handlers to changed ranges. Gets called no matter which end was touched.
     slider.noUiSlider.on('set', handleSliderChange)
 }
@@ -34,10 +37,12 @@ function resetSlider() {
  * Called whenever the slider range is changed.
  */
 function handleSliderChange() {
-    let slider_values = slider.noUiSlider.get()
-    let ext_min = Math.round( slider_values[0]);
-    let ext_max = Math.round( slider_values[1]);
-    console.log("Registered slider change: Min="+ext_min+", Max="+ext_max)
+    let slider_value = slider.noUiSlider.get()
+    console.log(slider_value)
+    let ext_min = Math.round(slider_value)
+    // let ext_max = Math.round( slider_values[1]);
+    console.log("Registered slider change: Min="+ext_min)
+    document.getElementById('min-ext-value').innerText=ext_min
 }
 
 function registerElementListeners() {

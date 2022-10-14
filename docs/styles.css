@@ -134,7 +134,7 @@ li {
 }
 
 #settings-box {
-    min-height: 260px;
+    min-height: 264px;
 }
 
 .settings-element {
@@ -169,6 +169,11 @@ li {
     margin-left: 12px;
     margin-right: 12px;
     margin-bottom: 28px;
+}
+
+#min-div {
+    margin-top: -20px;
+    margin-left: 0px;
 }
 
 /*.noUi-base {*/
