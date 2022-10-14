@@ -5,12 +5,18 @@ function buildSliderFilter(max_value) {
     slider = document.getElementById('slider');
     slider_max_value = max_value
 
+    // exponent to apply for non linear slider scaling (set to 1 for linear scaling)
+    let exponent=5
+
     noUiSlider.create(slider, {
         start: 0,  // start with full range
         connect: "upper",  // coloured bars between handles
          // step: 10000, // this one adds labeled ticks below, but unfortunately also adds snapping
         range: {
             'min': 0,
+            '25%' : max_value*Math.pow(0.25, exponent),
+            '50%' : max_value*Math.pow(0.5, exponent),
+            '75%' : max_value*Math.pow(0.75, exponent),
             'max': max_value
         },
         pips: {
