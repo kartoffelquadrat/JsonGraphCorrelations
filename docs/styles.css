@@ -7,12 +7,14 @@ h1, h2 {
  * See: https://stackoverflow.com/a/53857055
  */
 .min-container-width {
-    min-width: 1160px;
+    /*min-width: 1160px;*/
+    min-width: 1060px;
     overflow: scroll;
 }
 
 .min-inner-container-width {
-    min-width: 1100px;
+    /*min-width: 1100px;*/
+    min-width: 1000px;
     overflow: scroll;
 
 }
