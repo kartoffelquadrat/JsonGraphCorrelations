@@ -6,8 +6,8 @@ function buildSliderFilter(max_value) {
     slider_max_value = max_value
 
     noUiSlider.create(slider, {
-        start: [0, max_value],  // start with full range
-        connect: true,  // coloured bars between handles
+        start: 0,  // start with full range
+        connect: "upper",  // coloured bars between handles
          // step: 10000, // this one adds labeled ticks below, but unfortunately also adds snapping
         range: {
             'min': 0,
@@ -44,6 +44,7 @@ function registerElementListeners() {
     document.getElementById('children-tab').addEventListener("click", () => toggleTabs("children"));
     document.getElementById('parents-tab').addEventListener("click", () => toggleTabs("parents"));
     document.getElementById('focus-root').addEventListener("click", () => {focusNodeById(unfiltered_root_node); resetSlider()});
+    document.getElementById('reset-range').addEventListener("click", () => resetSlider());
     document.getElementById('switchExtensions').addEventListener("click", () => refreshSettingsState('switchExtensions', 'extension-line', 'hidden-line'));
     document.getElementById('switchIdentifiers').addEventListener("click", () => refreshSettingsState('switchIdentifiers', 'id-line', 'hidden-line'));
     document.getElementById('switchHeightLimit').addEventListener("click", () => refreshSettingsState('switchHeightLimit', 'node-cell', 'limit-height'));
