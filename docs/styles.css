@@ -80,7 +80,8 @@ p {
 
 /*Gets activated whenever a node does not fall into the current filter range.*/
 .cell-container-excluded {
-    opacity: 40%;
+    opacity: 30%;
+    /*transition: 1s;*/ /*TODO: figure out why transition has no effect. Possibly because of dom rebuild...*/
 }
 
 #node-info {
