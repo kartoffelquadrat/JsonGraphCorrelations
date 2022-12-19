@@ -13,7 +13,7 @@ Purpose of the analysis is to identify which code changes are overrepresented in
 
 ## Access
 
-The JGC is ready for exploration on [github pages](https://kartoffelquadrat.github.io/JsonGraphCorrelator/).
+The JGC is ready for exploration on [github pages](https://m5c.github.io/JsonGraphCorrelator/).
 
 ### Usage
 
